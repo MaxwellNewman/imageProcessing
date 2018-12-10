@@ -5,8 +5,6 @@ AreaAverageMethod::AreaAverageMethod():BlurryMethod(){
 }
 
 void AreaAverageMethod::makeBlurry(){
-	std::cout << "In AreaAverageMethod makeBlurry()" << std::endl;
-
 	for(uint i=0; i<IMAGE_SIZE; ++i){
 		for(uint j=0; j<IMAGE_SIZE; ++j){
 			averageSingleCell(i, j);
@@ -15,7 +13,6 @@ void AreaAverageMethod::makeBlurry(){
 }
 
 void AreaAverageMethod::setColorRadius(unsigned char colorRadius){
-	std::cout << colorRadius << std::endl;
 	this->colorRadius = colorRadius;
 }
 

@@ -13,7 +13,7 @@ int main(){
 	//AreaAverageMethod aam();
 	///blurry = &aam;
 	AreaAverageMethod* blurry = new AreaAverageMethod();
-	unsigned char radius = 1;
+	unsigned char radius = 3;
 	blurry->setColorRadius(radius);
 
 	blurry->setInputFilename(inputFilename);

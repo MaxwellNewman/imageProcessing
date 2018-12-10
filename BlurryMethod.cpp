@@ -43,7 +43,6 @@ void BlurryMethod::setOutputFilename(std::string outputFilename){
 }
 
 bool BlurryMethod::readInputImage(){
-	std::cout << "reading image" << std::endl;
 	if(readRGBBMP(inputFilename.c_str(), inputImage)){
 		std::cout << "Error reading input file: " << inputFilename << std::endl;
 		return false;

@@ -23,4 +23,4 @@ BlurryMethod.o: BlurryMethod.h bmplib.o
 ColorAverageArea.o: ColorAverageArea.h
 
 clean:
-	rm -f *.o
+	rm -f *.o *.bmp
