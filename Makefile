@@ -1,25 +1,26 @@
-# Name: Mark Redekopp
-# email: redekopp@usc.edu
+# Name: Maxwell Newman
+# email: maxwellnewman100@gmail.com
 
 CC = g++
 CFLAGS = -g -Wall -std=c++11
-LDFLAGS =
-SRCS =  chromakey.cpp bmplib.cpp
-OBJ = $(SRCS:.cpp=.o)
-TARGET = chromakey
+SRCS =  bmplib.cpp BlurryMethod.cpp AreaAverageMethod.cpp ColorAverageArea.cpp
+TARGET = blurry
 
+all: blurry
 
-all: $(TARGET)
-
-$(TARGET): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(TARGET)
+blurry: blurry.cpp bmplib.o AreaAverageMethod.o BlurryMethod.o ColorAverageArea.o
+	$(CC) $(CFLAGS) blurry.cpp bmplib.o AreaAverageMethod.o BlurryMethod.o ColorAverageArea.o -o blurry
 
 .cpp.o:
 	$(CC) $(CFLAGS) -c $<
 
 bmplib.o : bmplib.h
 
-chromakey.o: chromakey.cpp bmplib.h
+AreaAverageMethod.o: AreaAverageMethod.h bmplib.o bmplib.h
+
+BlurryMethod.o: BlurryMethod.h bmplib.o
+
+ColorAverageArea.o: ColorAverageArea.h
 
 clean:
-	rm -f *.o $(TARGET) *~
+	rm -f *.o

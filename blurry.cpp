@@ -1,9 +1,28 @@
+#include <string>
+#include <iostream>
 #include "blurry.h"
+#include "AreaAverageMethod.h"
+#include "bmplib.h"
 
 int main(){
-	std::string inputImage = getInputImageName();
-	std::string outputImage = getOutputImageName():
+	std::string inputFilename = getInputImageName();
+	std::string outputFilename = getOutputImageName();
 
+	//BlurryMethod* blu2rry = NULL;
+	// = new AreaAverageMethod;
+	//AreaAverageMethod aam();
+	///blurry = &aam;
+	AreaAverageMethod* blurry = new AreaAverageMethod();
+	unsigned char radius = 1;
+	blurry->setColorRadius(radius);
+
+	blurry->setInputFilename(inputFilename);
+	blurry->setOutputFilename(outputFilename);
+
+	blurry->readInputImage();
+	blurry->makeBlurry();
+
+	blurry->writeOutputImage();
 }
 
 std::string getInputImageName(){
