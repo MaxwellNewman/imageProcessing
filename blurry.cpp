@@ -8,20 +8,13 @@ int main(){
 	std::string inputFilename = getInputImageName();
 	std::string outputFilename = getOutputImageName();
 
-	//BlurryMethod* blu2rry = NULL;
-	// = new AreaAverageMethod;
-	//AreaAverageMethod aam();
-	///blurry = &aam;
-	AreaAverageMethod* blurry = new AreaAverageMethod();
 	unsigned char radius = 3;
-	blurry->setColorRadius(radius);
+	BlurryMethod* blurry = new AreaAverageMethod(radius);
 
 	blurry->setInputFilename(inputFilename);
 	blurry->setOutputFilename(outputFilename);
-
 	blurry->readInputImage();
 	blurry->makeBlurry();
-
 	blurry->writeOutputImage();
 }
 

@@ -4,6 +4,7 @@
 class AreaAverageMethod : public BlurryMethod {
 public:
 	AreaAverageMethod();
+	AreaAverageMethod(unsigned char colorRadius);
 	void makeBlurry();
 	void setColorRadius(unsigned char colorRadius);
 private:

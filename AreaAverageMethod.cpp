@@ -4,6 +4,10 @@ AreaAverageMethod::AreaAverageMethod():BlurryMethod(){
 	setColorRadius(0);
 }
 
+AreaAverageMethod::AreaAverageMethod(unsigned char colorRadius):BlurryMethod(){
+	setColorRadius(colorRadius);
+}
+
 void AreaAverageMethod::makeBlurry(){
 	for(uint i=0; i<IMAGE_SIZE; ++i){
 		for(uint j=0; j<IMAGE_SIZE; ++j){
