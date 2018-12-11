@@ -1,10 +1,10 @@
 #include "ColorAverageArea.h"
-#include <iostream>
 
 ColorAverageArea::ColorAverageArea(uint row, uint col, unsigned char radius){
 	this->radius = radius;
 	this->color = color;
 	findLimits(row, col);
+	srand(time(NULL));
 
 	//std::cout << radius << std::endl;
 }
@@ -43,4 +43,25 @@ unsigned char ColorAverageArea::findAverageColor(unsigned char*** colorArray){
 	uint colorSum = computeColorSum(colorArray);
 
 	return colorSum / totalArea;
+}
+
+std::pair<uint,uint> ColorAverageArea::selectRandomCell(){
+	uint randomRow = selectRandomRow();
+	uint randomCol = selectRandomColumn();
+
+	return std::make_pair(randomRow, randomColumn);
+}
+
+uint ColorAverageArea::selectRandomRow(){
+	uint rowRange = (maximumRow - minimumCol);
+	uint randomRow = rand() % (rowRange) + minimumRow + 1;
+
+	return randomRow;
+}
+
+uint ColorAverageArea::selectRandomColumn(){
+	uint columnRange = (maximumCol - minimumCol);
+	uint randomColumn = rand() % (columnRange) + minimumCol + 1;
+	
+	return randomColumn;
 }
